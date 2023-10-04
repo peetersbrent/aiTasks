@@ -93,6 +93,9 @@ if st.button("Los de som op!"):
     st.text("----------------------------")
 
     plus = int(result1) + int(result2)
+    min = int(result1) - int(result2)
+    maal = int(result1) * int(result2)
+    gedeeld = int(result1) / int(result2)
 
     if (operator == "+"):
         st.text(result1)
@@ -105,17 +108,17 @@ if st.button("Los de som op!"):
         st.text(" -")
         st.text(word_2)
         st.text(" =")
-        st.text(result1 + result2)
+        st.text(min)
     elif (operator == "*"):
         st.text(result1)
         st.text(" *")
         st.text(word_2)
         st.text(" =")
-        st.text(result1 + result2)
+        st.text(maal)
     else:
         st.text(result1)
         st.text(" /")
         st.text(word_2)
         st.text(" =")
-        st.text(result1 + result2)
+        st.text(gedeeld)
     # print('\nSolutions:', output)
