@@ -121,4 +121,4 @@ if st.button("Los de som op!"):
         st.text(result2)
         st.text(" =")
         st.text(gedeeld)
-    # print('\nSolutions:', output)
+    st.text(output)
