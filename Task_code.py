@@ -92,12 +92,14 @@ if st.button("Los de som op!"):
 
     st.text("----------------------------")
 
+    plus = int(result1) + int(result2)
+
     if (operator == "+"):
         st.text(result1)
         st.text(" +")
         st.text(result2)
         st.text(" =")
-        st.text(result1 + result2)
+        st.text(plus)
     elif (operator == "-"):
         st.text(result1)
         st.text(" -")
