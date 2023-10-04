@@ -106,19 +106,19 @@ if st.button("Los de som op!"):
     elif (operator == "-"):
         st.text(result1)
         st.text(" -")
-        st.text(word_2)
+        st.text(result2)
         st.text(" =")
         st.text(min)
     elif (operator == "*"):
         st.text(result1)
         st.text(" *")
-        st.text(word_2)
+        st.text(result2)
         st.text(" =")
         st.text(maal)
     else:
         st.text(result1)
         st.text(" /")
-        st.text(word_2)
+        st.text(result2)
         st.text(" =")
         st.text(gedeeld)
     # print('\nSolutions:', output)
