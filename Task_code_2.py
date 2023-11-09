@@ -39,10 +39,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 st.title("Task 2 AI - Brent Peeters")
 
 if st.button("Kies één van de verschillende ML algoritmes"):
-    selected_option = st.radio(["Decision Tree", "One VS One", "KNeigbors", "Alle algoritmes"])
+    selected_option = st.radio("Selecteer een ML-algoritme", ["Decision Tree", "One VS One", "KNeigbors", "Alle algoritmes"])
 
     # Display the selected option
-    st.write("You selected:", selected_option)
+    st.write("Geselecteerde optie:", selected_option)
 
     #3 ML techniques
     clf = DecisionTreeClassifier(criterion = "entropy")
