@@ -76,11 +76,11 @@ if st.button("Kies één van de verschillende ML algoritmes"):
     elif(selected_option == "One VS One"):
         st.text(conf_matrix_onevsone)
         st.text(' ')
-        st.text(f"Accurancy: accuracy_score_onevsone")
+        st.text(f"Accurancy: {accuracy_score_onevsone}")
     elif(selected_option == "KNeigbors"):
         st.text(conf_matrix_KNeighbors)
         st.text(' ')
-        st.text(f"Accurancy: accuracy_score_KNeighbors")
+        st.text(f"Accurancy: {accuracy_score_KNeighbors}")
     else:
         st.text("    " + "DecisionTree" + "              " + "OneVsOne" + "              " + "KNeighbors")
         st.text('')
