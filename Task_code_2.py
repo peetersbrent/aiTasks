@@ -1,6 +1,8 @@
 
+
 import streamlit as st
 import pandas as pd
+from matplotlib import pyplot as plt
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
@@ -37,6 +39,15 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 
 st.title("Task 2 AI - Brent Peeters")
+
+st.text("Eerst laat ik een grafiek zien om duidelijk te maken hoeveel soorten glas er zijn en hoeveel er juist van zijn.")
+
+target_counts = glass_df['target'].value_counts()
+plt.bar(target_counts.index, target_counts.values)
+plt.xlabel('Target')
+plt.ylabel('Count')
+plt.title('Distribution of Target Variable')
+plt.show()
 
 if st.button("Kies één van de verschillende ML algoritmes"):
     selected_option = st.radio("Selecteer een ML-algoritme", ["Decision Tree", "One VS One", "KNeigbors", "Alle algoritmes"])
