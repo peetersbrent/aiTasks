@@ -38,15 +38,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 st.title("Task 2 AI - Brent Peeters")
 
-st.text("Hieronder zie je een grafiek waar je kan aflezen hoeveel keer een bepaalde glassoort voorkomt in de dataset.")
-
-target_counts = glass_df['target'].value_counts()
-plt.bar(target_counts.index, target_counts.values)
-plt.xlabel('Target')
-plt.ylabel('Count')
-plt.title('Distribution of Target Variable')
-plt.show()
-
 if st.button("Kies één van de verschillende ML algoritmes"):
     selected_option = st.radio(["Decision Tree", "One VS One", "KNeigbors", "Alle algoritmes"])
 
