@@ -39,7 +39,7 @@ st.title("Task 2 AI - Brent Peeters")
 
 selected_option = st.radio("Selecteer een ML-algoritme", ["Decision Tree", "One VS One", "KNeigbors", "Alle algoritmes"])
 
-if st.button("Kies één van de verschillende ML algoritmes"):
+if st.button("Run Algoritme!"):
 
     # Display the selected option
     st.write("Geselecteerde optie:", selected_option)
