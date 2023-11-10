@@ -37,7 +37,19 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 st.title("Task 2 AI - Brent Peeters")
 
-selected_option = st.radio("Selecteer een ML-algoritme", ["Decision Tree", "One VS One", "KNeigbors", "Alle algoritmes"])
+selected_option = st.selectbox("Selecteer een ML-algoritme", ["Decision Tree", "One VS One", "KNeigbors", "Alle algoritmes"])
+
+if(selected_option == "Decision Tree"):
+    criteria = st.radio("Selecteer een criteria", ["entropy", "gini", "log_loss"])
+elif(selected_option == "One VS One"):
+    regularisatieparameter = st.number_input("Geef de beslissingsgrens aan (positief getal): ")
+elif(selected_option == "KNeigbors"):
+    AantalNeighbors = st.number_input("Geef aan hoeveel Neighbors er mogen zijn: ")
+else:
+    criteria = st.radio("Selecteer een criteria", ["entropy", "gini", "log_loss"])
+    regularisatieparameter = st.number_input("Geef de beslissingsgrens aan (positief getal): ")
+    AantalNeighbors = st.number_input("Geef aan hoeveel Neighbors er mogen zijn: ")
+        
 
 if st.button("Run Algoritme!"):
 
@@ -45,16 +57,16 @@ if st.button("Run Algoritme!"):
     st.write("Geselecteerde optie:", selected_option)
 
     #3 ML techniques
-    clf = DecisionTreeClassifier(criterion = "entropy")
+    clf = DecisionTreeClassifier(criterion = criteria)
     decisionTree = clf.fit(X_train, y_train)
     decisionTree_pred = decisionTree.predict(X_test)
 
-    clff = OneVsOneClassifier(LinearSVC(dual="auto", random_state=0, multi_class="ovr"))
+    clff = OneVsOneClassifier(LinearSVC(dual="auto", random_state=0, multi_class="ovr", C=regularisatieparameter))
     OneVsOne = clff.fit(X_train, y_train)
     OneVsOne_pred = OneVsOne.predict(X_test)
 
     nca = NeighborhoodComponentsAnalysis(random_state=42)
-    knn = KNeighborsClassifier(n_neighbors=1)
+    knn = KNeighborsClassifier(n_neighbors=AantalNeighbors)
     nca_pipe = Pipeline([('nca', nca), ('knn', knn)])
     nca_pipe.fit(X_train, y_train)
     KNeighbors_pred = nca_pipe.predict(X_test)
