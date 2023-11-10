@@ -46,9 +46,9 @@ criteria = 'entropy'
 if(selected_option == "Decision Tree"):
     criteria = st.radio("Selecteer een criteria", ["entropy", "gini", "log_loss"])
 elif(selected_option == "One VS One"):
-    regularisatieparameter = st.number_input("Geef de beslissingsgrens aan (positief getal): ", format=int)
+    regularisatieparameter = st.number_input("Geef de beslissingsgrens aan (positief getal): ", value=int)
 elif(selected_option == "KNeigbors"):
-    AantalNeighbors = st.number_input("Geef aan hoeveel Neighbors er mogen zijn: ", format=int)
+    AantalNeighbors = st.number_input("Geef aan hoeveel Neighbors er mogen zijn: ", value=int)
 
 else:
     criteria = st.radio("Selecteer een criteria", ["entropy", "gini", "log_loss"])
