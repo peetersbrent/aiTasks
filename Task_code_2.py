@@ -61,6 +61,16 @@ if st.button("Run Algoritme!"):
 
     # Display the selected option
     st.write("Geselecteerde optie:", selected_option)
+    if(selected_option == "Decision Tree"):
+        st.write("Geselecteerde criteria:", criteria)
+    elif(selected_option == "One VS One"):
+        st.write("Aangegeven beslissingsgrens:", regularisatieparameter)
+    elif(selected_option == "KNeigbors"):
+        st.write("Aantal Neighbors:", AantalNeighbors)
+    else:
+        st.write("Geselecteerde criteria:", criteria)
+        st.write("Aangegeven beslissingsgrens:", regularisatieparameter)
+        st.write("Aantal Neighbors:", AantalNeighbors)
 
     #3 ML techniques
     clf = DecisionTreeClassifier(criterion = criteria)
