@@ -39,20 +39,22 @@ st.title("Task 2 AI - Brent Peeters")
 
 selected_option = st.selectbox("Selecteer een ML-algoritme", ["Decision Tree", "One VS One", "KNeigbors", "Alle algoritmes"])
 
-regularisatieparameter = None
-AantalNeighbors = None
-criteria = None
+regularisatieparameter = 1
+AantalNeighbors = 1
+criteria = 'entropy'
 
 if(selected_option == "Decision Tree"):
     criteria = st.radio("Selecteer een criteria", ["entropy", "gini", "log_loss"])
 elif(selected_option == "One VS One"):
-    regularisatieparameter = st.number_input("Geef de beslissingsgrens aan (positief getal): ")
+    regularisatieparameter = int(st.number_input("Geef de beslissingsgrens aan (positief getal): "))
 elif(selected_option == "KNeigbors"):
-    AantalNeighbors = st.number_input("Geef aan hoeveel Neighbors er mogen zijn: ")
+    AantalNeighbors = int(st.number_input("Geef aan hoeveel Neighbors er mogen zijn: "))
+
 else:
     criteria = st.radio("Selecteer een criteria", ["entropy", "gini", "log_loss"])
-    regularisatieparameter = st.number_input("Geef de beslissingsgrens aan (positief getal): ")
-    AantalNeighbors = st.number_input("Geef aan hoeveel Neighbors er mogen zijn: ")
+    regularisatieparameter = int(st.number_input("Geef de beslissingsgrens aan (positief getal): "))
+    AantalNeighbors = int(st.number_input("Geef aan hoeveel Neighbors er mogen zijn: "))
+      
         
 
 if st.button("Run Algoritme!"):
