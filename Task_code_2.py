@@ -46,14 +46,14 @@ criteria = 'entropy'
 if(selected_option == "Decision Tree"):
     criteria = st.radio("Selecteer een criteria", ["entropy", "gini", "log_loss"])
 elif(selected_option == "One VS One"):
-    regularisatieparameter = int(st.text_input("Geef de beslissingsgrens aan (positief geheel getal): "))
+    regularisatieparameter = st.text_input("Geef de beslissingsgrens aan (positief geheel getal): ")
 elif(selected_option == "KNeigbors"):
-    AantalNeighbors = int(st.text_input("Geef aan hoeveel Neighbors er mogen zijn (geheel getal): "))
+    AantalNeighbors = st.text_input("Geef aan hoeveel Neighbors er mogen zijn (geheel getal): ")
 
 else:
     criteria = st.radio("Selecteer een criteria", ["entropy", "gini", "log_loss"])
-    regularisatieparameter = int(st.text_input("Geef de beslissingsgrens aan (positief geheel getal): "))
-    AantalNeighbors = int(st.text_input("Geef aan hoeveel Neighbors er mogen zijn (geheel getal): "))
+    regularisatieparameter = st.text_input("Geef de beslissingsgrens aan (positief geheel getal): ")
+    AantalNeighbors = st.text_input("Geef aan hoeveel Neighbors er mogen zijn (geheel getal): ")
       
         
 
@@ -67,12 +67,12 @@ if st.button("Run Algoritme!"):
     decisionTree = clf.fit(X_train, y_train)
     decisionTree_pred = decisionTree.predict(X_test)
 
-    clff = OneVsOneClassifier(LinearSVC(dual="auto", random_state=0, multi_class="ovr", C=regularisatieparameter))
+    clff = OneVsOneClassifier(LinearSVC(dual="auto", random_state=0, multi_class="ovr", C=int(regularisatieparameter)))
     OneVsOne = clff.fit(X_train, y_train)
     OneVsOne_pred = OneVsOne.predict(X_test)
 
     nca = NeighborhoodComponentsAnalysis(random_state=42)
-    knn = KNeighborsClassifier(n_neighbors=AantalNeighbors)
+    knn = KNeighborsClassifier(n_neighbors=int(AantalNeighbors))
     nca_pipe = Pipeline([('nca', nca), ('knn', knn)])
     nca_pipe.fit(X_train, y_train)
     KNeighbors_pred = nca_pipe.predict(X_test)
