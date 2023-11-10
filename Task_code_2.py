@@ -39,6 +39,10 @@ st.title("Task 2 AI - Brent Peeters")
 
 selected_option = st.selectbox("Selecteer een ML-algoritme", ["Decision Tree", "One VS One", "KNeigbors", "Alle algoritmes"])
 
+regularisatieparameter = None
+AantalNeighbors = None
+criteria = None
+
 if(selected_option == "Decision Tree"):
     criteria = st.radio("Selecteer een criteria", ["entropy", "gini", "log_loss"])
 elif(selected_option == "One VS One"):
